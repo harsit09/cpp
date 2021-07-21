@@ -6,6 +6,6 @@ void main()
 
     printf("Enter temperature in Farhenheit: ");
     scanf("%f",&farhenheit);
-    celsius=(farhenheit*5/9)-32;
-    printf("%f Farhenheit = %f Celsius", celsius, fahrenheit);
+    celsius=(((farhenheit*5/9))-32);
+    printf("%f Farhenheit = %f Celsius", celsius, farhenheit);
 }
