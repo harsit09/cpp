@@ -1,0 +1,152 @@
+Example of Object-Oriented Programming (OOP) in
+ example of OOP in C++:
+
+#include <iostream>
+#include <string>
+
+class Vehicle {
+private:
+    std::string brand;  // Encapsulation: brand is private
+    int speed;
+
+public:
+    // Constructor
+    Vehicle(std::string b, int s) : brand(b), speed(s) {}
+
+    // Getter and Setter (Encapsulation)
+    std::string getBrand() const {
+        return brand;
+    }
+
+    void setBrand(std::string b) {
+        brand = b;
+    }
+
+    int getSpeed() const {
+        return speed;
+    }
+
+    void setSpeed(int s) {
+        speed = s;
+    }
+
+    // Polymorphism: Virtual method
+    virtual void displayInfo() const {
+        std::cout << "Brand: " << brand << ", Speed: " << speed << " km/h" << std::endl;
+    }
+};
+
+// Inheritance
+class Car : public Vehicle {
+private:
+    int numberOfDoors;
+
+public:
+    // Constructor using base class constructor
+    Car(std::string b, int s, int doors) : Vehicle(b, s), numberOfDoors(doors) {}
+
+    // Polymorphism: Overriding displayInfo
+    void displayInfo() const override {
+        Vehicle::displayInfo();
+        std::cout << "Number of doors: " << numberOfDoors << std::endl;
+    }
+};
+
+int main() {
+    // Object creation and usage
+    Vehicle v("Generic Vehicle", 50);
+    Car c("Tesla", 120, 4);
+
+    // Using polymorphism
+    Vehicle* vehiclePtr = &c; // Base class pointer pointing to derived class
+    vehiclePtr->displayInfo();
+
+    return 0;
+}
+
+Example of OOP in Java
+
+Here is a similar example in Java:
+
+class Vehicle {
+    private String brand;  // Encapsulation
+    private int speed;
+
+    // Constructor
+    public Vehicle(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    // Getter and Setter
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    // Polymorphism: Virtual method (default behavior in Java)
+    public void displayInfo() {
+        System.out.println("Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+// Inheritance
+class Car extends Vehicle {
+    private int numberOfDoors;
+
+    // Constructor using superclass constructor
+    public Car(String brand, int speed, int doors) {
+        super(brand, speed);
+        this.numberOfDoors = doors;
+    }
+
+    // Polymorphism: Overriding displayInfo
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Number of doors: " + numberOfDoors);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle v = new Vehicle("Generic Vehicle", 50);
+        Car c = new Car("Tesla", 120, 4);
+
+        // Using polymorphism
+        Vehicle vehicle = c; // Base class reference pointing to derived class
+        vehicle.displayInfo();
+    }
+}
+
+Differences Between OOP in C++ and Java
+
+Aspect	C++	Java
+Language Type	C++ is a compiled, general-purpose language that supports both OOP and procedural programming.	Java is a purely object-oriented, platform-independent language.
+Memory Management	Manual memory management using new and delete.	Automatic garbage collection; no need for explicit delete.
+Access Specifiers	Supports private, public, and protected.	Supports private, public, protected, and default (package-private).
+Inheritance	Supports multiple inheritance via classes and virtual inheritance.	Only single inheritance is allowed (multiple inheritance via interfaces).
+Polymorphism	Polymorphism requires explicitly declaring methods as virtual.	All methods are virtual by default unless marked final or static.
+Abstract Classes	Abstract classes can have both pure virtual methods and implemented methods.	Abstract classes must be declared with abstract and can have implemented methods.
+Interfaces	Interfaces aren’t a separate construct; can be achieved via abstract classes.	Interfaces are a distinct construct (interface keyword) and support multiple inheritance.
+Pointers	C++ supports pointers, allowing low-level memory manipulation.	Java does not support pointers directly (handles memory safely).
+Templates vs. Generics	C++ has templates for generic programming, providing compile-time type safety.	Java has generics, which are implemented at runtime with type erasure.
+Operator Overloading	C++ supports operator overloading.	Java does not support operator overloading.
+Destructor	C++ supports destructors for cleanup (~ClassName()).	Java relies on finalize() (deprecated) and garbage collection.
+
+Summary
+	•	C++: Offers fine-grained control over memory and performance. It allows features like multiple inheritance, pointers, and operator overloading, making it suitable for low-level system programming.
+	•	Java: Provides automatic memory management and a pure OOP model with features like garbage collection and platform independence, making it easier for developers to focus on higher-level application logic.
+
+Both have their strengths, and the choice between them depends on the use case!
