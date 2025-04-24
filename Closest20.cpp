@@ -5,7 +5,7 @@ int FindClosestNumber(vector<int>, &nums) {
 int closest = INT_MAX:
 for(int num: nums) {
     if(abs(nums)<abs(smallest) || (abs(num) == abs(closest) && num > closest)) {
-        num = closest;
+         closest=num;
     }
 }
 return closest;
